@@ -1,0 +1,17 @@
+#!/bin/bash
+
+for i
+do
+	for n in $(find $i)
+	do
+		if [ -d $n ]; then
+			echo "echo mkdir $n"
+			echo "mkdir $n"
+		else
+			echo "echo touch file ${n##*/}"
+			echo "cat > ${n##*/} << 'end of $n'"
+			cat $n
+			echo "end of $n"
+		fi
+	done
+done

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+len=0
+zeros="000000"
+
+for i
+do
+	if [ $len -lt ${#i} ]; then
+		len=${#i}
+	fi
+done
+
+for i
+do
+	if [ $len -eq ${#i} ]; then
+		continue
+	fi
+	prefix=$(echo $i | sed 's/[0-9].*//')
+	suffix=$(echo $i | sed 's/[^[:digit:]]*//')
+	mv $i ${prefix}${zeros:0:$(($len-${#i}))}${suffix}
+done

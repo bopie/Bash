@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -x $1 ]; then
+	op=-
+else
+	op=+
+fi
+
+for i in $@
+do
+	chmod ${op}x $i
+done

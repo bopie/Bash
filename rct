@@ -1,0 +1,14 @@
+#!/bin/bash
+
+while read line
+do
+	echo
+	word=${line%%,*}
+	meaning=${line##*,}
+	read -p "$meaning: " -u 1 answer
+	if [ "$answer" == "$word" ]; then
+		continue
+	else
+		echo $word
+	fi
+done < $1

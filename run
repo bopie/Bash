@@ -1,0 +1,12 @@
+#!/bin/bash
+
+name=${1%%.*}
+
+[[ -e $name ]] && read -p "target file exist, overwrite?" -n 1 answer || answer=y
+
+if [ "$answer" == "y" ]; then
+	gcc $1 -o $name && $name
+	rm $name > /dev/null 2>&1
+else
+	exit 1
+fi
