@@ -1,15 +1,15 @@
 #!/bin/bash
 
-usr="13Test"
-password="tset31"
-loginurl="http://www.tangoriki.com/login.php"
+usr=""
+password=""
+loginurl=""
 wordlist="words"
 answer=""
 
 curl -c cookie -d "usr=$usr&pwd=$password" "$loginurl" > /dev/null 2>&1
 for ((x = 0; x < 1; x++))
 do
-	curl -b cookie "http://www.tangoriki.com/exam.php?mode=level&op=4" -o htmfile
+	curl -b cookie "" -o htmfile
 	grep -A2 '<td class="word">' htmfile | sed '/^--$/d' > wdtst
 	for ((i = 0; i < 10; i++))
 	do
@@ -29,5 +29,5 @@ do
 	done
 
 	echo $answer
-	curl -b cookie -d "$answer" "http://www.tangoriki.com/ans.php?mode=level&op=4" -o a.htm
+	curl -b cookie -d "$answer" "" -o a.htm
 done

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-usr="13Test"
-password="tset31"
-loginurl="http://www.tangoriki.com/login.php"
-seturl="http://www.tangoriki.com/set_makuri.php?set=1&num="
-wordurl="http://www.tangoriki.com/exam.php?mode=makuri"
-levels=800
+usr=""
+password=""
+loginurl=""
+seturl=""
+wordurl=""
+levels=100
 
 rm words
 curl -c cookie -d "usr=$usr&pwd=$password" "$loginurl" > /dev/null 2>&1
